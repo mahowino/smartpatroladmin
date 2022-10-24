@@ -14,6 +14,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.smartpatroladmin.Helpers.GuardHelper;
+import com.example.smartpatroladmin.Interface.onResult;
+import com.example.smartpatroladmin.Models.Guard;
 import com.example.smartpatroladmin.util.LoadingDialog;
 
 public class LoginScreen extends AppCompatActivity {
@@ -70,6 +73,22 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void validateInput() {
+
+        //get the input from the UI
+        //create a guard object with the input
+        //USE GUARD HELPER TO LOG THE GUARD IN
+
+        GuardHelper.getGuards(new onResult() {
+                                  @Override
+                                  public void onSuccess() {
+
+                                  }
+
+                                  @Override
+                                  public void onError(String e) {
+
+                                  }
+                              });
         redirectActivity(LoginScreen.this,HomePage.class);
     }
 
