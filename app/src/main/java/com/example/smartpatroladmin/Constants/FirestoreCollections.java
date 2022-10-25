@@ -10,5 +10,7 @@ public class FirestoreCollections {
 
 
     public static final CollectionReference GUARDS_REFERENCE=db.collection(GUARDS_PATH);
+    public static final CollectionReference INCIDENT_REFERENCE=db.collection(GUARDS_PATH);
+
 
 }

@@ -1,9 +1,13 @@
 package com.example.smartpatroladmin.Helpers;
 
 import static com.example.smartpatroladmin.Constants.FirestoreCollections.*;
+import static com.example.smartpatroladmin.Firebase.FirebaseAuthentication.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.*;
 
+import android.text.TextUtils;
+
 import com.example.smartpatroladmin.Constants.FirestoreCollections;
+import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
 import com.example.smartpatroladmin.Firebase.FirebaseRepository;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
 import com.example.smartpatroladmin.Interface.GuardsRetriever;
@@ -18,7 +22,7 @@ import java.util.List;
 
 public  class GuardHelper {
 
-    public static List<Guard> getGuards(GuardsRetriever retriever){
+    public static void getGuards(GuardsRetriever retriever){
 
         getDocuments(GUARDS_REFERENCE,new FirebaseDocumentRetriever() {
            @Override
@@ -40,7 +44,23 @@ public  class GuardHelper {
 
            }
        });
+
+    }
+    public static void logInGuard(Guard guard,onResult result){
+        String response=validateInput(guard);
+
+        if (response!=null)result.onError(response);
+        else signInUser(guard.getEmail(),guard.getPassword(),result);
+
+    }
+
+    private static String validateInput(Guard guard) {
+        if (guard.getEmail().isEmpty()) {return "Email is required";}
+        if (guard.getPassword().isEmpty()) {return"Password is required";}
+        if (guard.getPassword().length() < 8) {return"Password must be more than 8 characters";}
+
         return null;
     }
+
 }
 

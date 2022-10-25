@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         //running of thread
         try {
             sleep(2000);
-            redirectActivity(MainActivity.this, ViewGuardsActivity.class); finish();
+            redirectActivity(MainActivity.this, LoginScreen.class); finish();
         } catch (Exception exception) {
 
         }

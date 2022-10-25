@@ -1,5 +1,6 @@
 package com.example.smartpatroladmin;
 
+import static com.example.smartpatroladmin.Helpers.GuardHelper.*;
 import static com.example.smartpatroladmin.util.AppSystem.redirectActivity;
 
 import android.graphics.drawable.Drawable;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -53,29 +55,46 @@ public class LoginScreen extends AppCompatActivity {
 
 
     private void setListeners() {
-
-
         forgotPassword.setOnClickListener(v -> redirectActivity(LoginScreen.this,ForgotPassword.class));
-
-
+        mlogin.setOnClickListener(v -> logInAdmin());
 
         //onclick listeners
-
         passwordVisibility.setOnClickListener(v -> {
-            if (!isPasswordVisible) setPasswordTransformation(null,getResources().getDrawable(R.drawable.password_visible),true);
-            else setPasswordTransformation(PasswordTransformationMethod.getInstance(),getResources().getDrawable(R.drawable.password_invisible),false);
+            if (!isPasswordVisible)
+                setPasswordTransformation(
+                        null,
+                        getResources().getDrawable(R.drawable.password_visible),
+                        true);
+            else
+                setPasswordTransformation(
+                        PasswordTransformationMethod.getInstance(),
+                        getResources().getDrawable(R.drawable.password_invisible),
+                        false);
         });
-        mlogin.setOnClickListener(v -> validateInput());
     }
 
-    private void validateInput() {
+    private void logInAdmin() {
+        Guard guard=getGuardDetails();
+        logInGuard(guard, new onResult() {
+            @Override
+            public void onSuccess() {
+                redirectActivity(LoginScreen.this,HomePage.class);
+            }
 
-        //get the input from the UI
-        //create a guard object with the input
-        //USE GUARD HELPER TO LOG THE GUARD IN
+            @Override
+            public void onError(String e) {
+                Toast.makeText(getApplicationContext(), e, Toast.LENGTH_SHORT).show();
+            }
+        });
 
+    }
 
-        redirectActivity(LoginScreen.this,HomePage.class);
+    private Guard getGuardDetails() {
+        Guard guard=new Guard();
+        guard.setEmail(memail.getText().toString());
+        guard.setPassword(mpassword.getText().toString());
+
+        return guard;
     }
 
     private void setPasswordTransformation(PasswordTransformationMethod method, Drawable drawable, boolean isPasswordVisible){
