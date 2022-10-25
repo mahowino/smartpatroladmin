@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -22,30 +23,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imgGuardProfilePic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icons8_vest_40px" />
+            <ImageView
+                android:id="@+id/imgIncidentImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icons8_vest_40px" />
 
-        <TextView
-            android:id="@+id/txtGuardName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Incident description"
-            android:textColor="@color/primary_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imgGuardProfilePic"
-            app:layout_constraintStart_toEndOf="@+id/imgGuardProfilePic"
-            app:layout_constraintTop_toTopOf="@+id/imgGuardProfilePic" />
+            <TextView
+                android:id="@+id/txtIncidentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Incident description"
+                android:textColor="@color/primary_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imgIncidentImageView"
+                app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView"
+                app:layout_constraintTop_toTopOf="@+id/imgIncidentImageView" />
+
+            <TextView
+                android:id="@+id/txtIncidentMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:maxLines="100"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView"
+                app:layout_constraintTop_toBottomOf="@+id/txtIncidentTitle" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
