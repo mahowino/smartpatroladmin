@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.smartpatroladmin.Adapters.GuardAdapter;
+import com.example.smartpatroladmin.Helpers.GuardHelper;
 import com.example.smartpatroladmin.Models.Guard;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class ViewGuardsActivity extends AppCompatActivity {
 
-    List<Guard> guards;
+
     RecyclerView viewGuards;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +23,21 @@ public class ViewGuardsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_guards);
         initializeData();
 
-        //after populating data from the db into a guard list, if there exists guards in db
-        GuardAdapter adapter=new GuardAdapter(this,guards);
-        viewGuards.setAdapter(adapter);
-        viewGuards.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL,false));
+        GuardHelper.getGuards(guards -> {
+            setAdapter(guards);
+        });
+
 
     }
 
     private void initializeData() {
-        guards=new ArrayList<>();
+
         viewGuards=findViewById(R.id.view_guards_recyclerView);
+    }
+    private void setAdapter(List<Guard> guards){
+        GuardAdapter adapter=new GuardAdapter(getApplicationContext(),guards);
+        viewGuards.setAdapter(adapter);
+        viewGuards.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
+
     }
 }

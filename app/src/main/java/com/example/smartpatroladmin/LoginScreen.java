@@ -78,17 +78,7 @@ public class LoginScreen extends AppCompatActivity {
         //create a guard object with the input
         //USE GUARD HELPER TO LOG THE GUARD IN
 
-        GuardHelper.getGuards(new onResult() {
-                                  @Override
-                                  public void onSuccess() {
 
-                                  }
-
-                                  @Override
-                                  public void onError(String e) {
-
-                                  }
-                              });
         redirectActivity(LoginScreen.this,HomePage.class);
     }
 

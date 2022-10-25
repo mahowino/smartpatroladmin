@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/drawable/ic_wave.xml" value="0.1565" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/activity_forgot_password.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/activity_home_page.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/activity_incident.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/activity_login_screen.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/activity_view_guards.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/fragment_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/fragment_home.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/fragment_notifications.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/guard_card.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/incident_card.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Roda Mutiso/AndroidStudioProjects/smartpatroladminGit/app/src/main/res/layout/loading_dialog.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/SmartPatrolAdmin/app/src/main/res/drawable-v24/background_textview_no_boarders.xml" value="0.257" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/SmartPatrolAdmin/app/src/main/res/drawable-v24/button_signup.xml" value="0.257" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/SmartPatrolAdmin/app/src/main/res/drawable/ic_wave.xml" value="0.257" />

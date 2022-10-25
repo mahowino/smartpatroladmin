@@ -12,11 +12,11 @@ public class IncidentHelper {
     }
 
     public String getAllIncidents(){
-return null;
+    return null;
     }
 
     public String generateIncidentReport(){
-return null;
+    return null;
     }
 
 }

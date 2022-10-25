@@ -152,11 +152,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_signup"
-            android:backgroundTint="@null"
+            android:backgroundTint="@color/primary"
             android:elevation="12dp"
             android:padding="10dp"
             android:text="Sign in"
-
             android:textColor="@color/white" />
 
 
@@ -182,7 +181,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="@color/primary"
+        android:background="@color/primary_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
