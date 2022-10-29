@@ -36,7 +36,7 @@ public class IncidentAdapter extends RecyclerView.Adapter<IncidentAdapter.ViewHo
 
         Incidents incident=incidents.get(position);
         holder.incidentTitle.setText(incident.getTitle());
-        holder.incidentMessage.setText(incident.getMessage());
+        holder.incidentMessage.setText(incident.getDescription());
 
         Picasso.with(mContext)
                 .load(incident.getGuard().getGuardProfilePicture())

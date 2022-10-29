@@ -38,7 +38,7 @@ public class IncidentActivity extends AppCompatActivity {
 
     private void initializeData() {
         incidents=new ArrayList<>();
-        //recyclerView=findViewById(R.id.)
+        recyclerView=findViewById(R.id.recyclerViewIncidents);
     }
 
     private void setAdapter(List<Incidents> incidents) {

@@ -6,6 +6,7 @@ import static java.lang.Thread.sleep;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.smartpatroladmin.util.AppSystem;
 
@@ -29,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private void load_splashscreen() {
 
         //running of thread
-        try {
+        redirectActivity(MainActivity.this, ViewGuardsActivity.class); finish();
+       /* try {
             sleep(2000);
-            redirectActivity(MainActivity.this, LoginScreen.class); finish();
+            redirectActivity(MainActivity.this, IncidentActivity.class); finish();
         } catch (Exception exception) {
 
+            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
+*/
     }
 }

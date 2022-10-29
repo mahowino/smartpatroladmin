@@ -1,14 +1,10 @@
 package com.example.smartpatroladmin.Helpers;
 
-import static com.example.smartpatroladmin.Constants.FirestoreCollections.*;
+import static com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseAuthentication.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.*;
 
-import android.text.TextUtils;
-
-import com.example.smartpatroladmin.Constants.FirestoreCollections;
-import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
-import com.example.smartpatroladmin.Firebase.FirebaseRepository;
+import com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
 import com.example.smartpatroladmin.Interface.GuardsRetriever;
 import com.example.smartpatroladmin.Interface.onResult;

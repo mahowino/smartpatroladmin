@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.smartpatroladmin.util.LoadingDialog;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ForgotPassword extends AppCompatActivity {
@@ -50,7 +54,7 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     private void sendEmailResetLink(String emailAdress) {
-       /* FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
         auth.sendPasswordResetEmail(emailAdress)
@@ -65,22 +69,18 @@ public class ForgotPassword extends AppCompatActivity {
                                 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                                 startActivity(intent);
                                 dialog.dismissDialog();
+                                Toast.makeText(ForgotPassword.this, "Reset link sent to email.", Toast.LENGTH_SHORT).show();
                             } catch (android.content.ActivityNotFoundException e) {
                                 Toast.makeText(ForgotPassword.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),LogInScreen.class);
+                                Intent intent = new Intent(getApplicationContext(),LoginScreen.class);
                                 startActivity(intent);
                                 dialog.dismissDialog();
                             }
                         }
                     }
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ForgotPassword.this,"error in resetting password",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                .addOnFailureListener(e -> Toast.makeText(ForgotPassword.this,"error in resetting password",Toast.LENGTH_SHORT).show());
 
-    */
+
     }
 }

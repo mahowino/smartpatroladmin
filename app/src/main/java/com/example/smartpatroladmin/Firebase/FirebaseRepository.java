@@ -1,17 +1,10 @@
 package com.example.smartpatroladmin.Firebase;
 
-import static com.example.smartpatroladmin.Constants.FirestoreCollections.GUARDS_REFERENCE;
+import static com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections.GUARDS_REFERENCE;
 
-import com.example.smartpatroladmin.Constants.FirestoreCollections;
+import com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
-import com.example.smartpatroladmin.Interface.onResult;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class FirebaseRepository  {
 

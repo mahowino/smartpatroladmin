@@ -1,11 +1,10 @@
 package com.example.smartpatroladmin.Models;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Incidents {
     String Title;
-    String Message;
+    String Description;
     Guard guard;
     Calendar calendar;
 
@@ -17,12 +16,12 @@ public class Incidents {
         Title = title;
     }
 
-    public String getMessage() {
-        return Message;
+    public String getDescription() {
+        return Description;
     }
 
-    public void setMessage(String message) {
-        Message = message;
+    public void setDescription(String description) {
+        Description = description;
     }
 
     public Guard getGuard() {

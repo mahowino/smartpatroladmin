@@ -1,7 +1,7 @@
 package com.example.smartpatroladmin.Helpers;
 
-import static com.example.smartpatroladmin.Constants.FirestoreCollections.GUARDS_REFERENCE;
-import static com.example.smartpatroladmin.Constants.FirestoreCollections.INCIDENT_REFERENCE;
+import static com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections.INCIDENT_REFERENCE;
+import static com.example.smartpatroladmin.Firebase.Constants.FirebaseFields.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.getDocuments;
 
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
@@ -37,15 +37,16 @@ public class IncidentHelper {
                     Guard guard=new Guard();
 
                     //guard
-                    //guard.setuId(snapshot.get());
+                    guard.setuId(snapshot.getString(GUARD_UID));
 
                     //setters
-                    // incidents.setTitle(snapshot.get());
-                    // incidents.setMessage(snapshot.get());
-                    // incidents.setGuard(guard);
-                   // incidents.setCalendar(calendar.setTime(snapshot.getDate()));
+                    incidents.setTitle(snapshot.getString(TITLE));
+                    incidents.setDescription(snapshot.getString(DESCRIPTION));
+                    incidents.setGuard(guard);
+                    calendar.setTime(snapshot.getDate(DATE));
+                    incidents.setCalendar(calendar);
 
-                 //   incidentsArrayList.add(guard);
+                    incidentsArrayList.add(incidents);
                 }
                 retriever.onSuccess(incidentsArrayList);
 
