@@ -3,9 +3,6 @@ package com.example.smartpatroladmin;
 import static com.example.smartpatroladmin.Helpers.GuardHelper.*;
 import static com.example.smartpatroladmin.util.AppSystem.redirectActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -16,9 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.smartpatroladmin.Helpers.GuardHelper;
-import com.example.smartpatroladmin.Interface.onResult;
-import com.example.smartpatroladmin.Models.Guard;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.smartpatroladmin.util.LoadingDialog;
 
 public class LoginScreen extends AppCompatActivity {
