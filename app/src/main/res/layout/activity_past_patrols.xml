@@ -4,27 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewGuardsActivity">
+    tools:context=".PastPatrolsActivity">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/primary_dark"
+        android:layout_height="140dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout"
+            app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+            android:src="@drawable/police_officer"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="@drawable/ic_wave"
+        android:id="@+id/viewpatrolList"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_top_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView5"
@@ -32,15 +46,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:padding="16dp"
-        android:text="View guards"
+        android:text="Past Patrols"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toTopOf="@+id/viewpatrolList" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_guards_recyclerView"
+        android:id="@+id/view_patrols_recyclerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -49,6 +63,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:listitem="@layout/guard_card" />
+        tools:listitem="@layout/patrol_card" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

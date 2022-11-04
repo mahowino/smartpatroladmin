@@ -5,6 +5,8 @@ import static com.example.smartpatroladmin.Firebase.FirebaseAuthentication.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.*;
 
 import com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections;
+import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
+import com.example.smartpatroladmin.Firebase.FirebaseConstans;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
 import com.example.smartpatroladmin.Interface.GuardsRetriever;
 import com.example.smartpatroladmin.Interface.onResult;
@@ -58,5 +60,12 @@ public  class GuardHelper {
         return null;
     }
 
+    public static void signOut() {
+        if (FirebaseConstans.user!=null){
+            FirebaseConstans.mAuth.signOut();
+        }
+
+
+    }
 }
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.example.smartpatroladmin.Adapters.GuardAdapter;
 import com.example.smartpatroladmin.Helpers.GuardHelper;
+import com.example.smartpatroladmin.Interface.GuardsRetriever;
 import com.example.smartpatroladmin.Models.Guard;
 
 import java.util.ArrayList;
@@ -23,8 +24,11 @@ public class ViewGuardsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_guards);
         initializeData();
 
-        GuardHelper.getGuards(guards -> {
-            setAdapter(guards);
+        GuardHelper.getGuards(new GuardsRetriever() {
+            @Override
+            public void onSuccess(List<Guard> guards) {
+                ViewGuardsActivity.this.setAdapter(guards);
+            }
         });
 
 

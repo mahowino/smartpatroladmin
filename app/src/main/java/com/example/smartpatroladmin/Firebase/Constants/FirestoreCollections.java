@@ -13,4 +13,5 @@ public class FirestoreCollections {
     public static final CollectionReference INCIDENT_REFERENCE=db.collection(INCIDENT_PATH);
 
 
+
 }
