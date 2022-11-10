@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPatrolAdmin"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDutO01vfUYkxeVH7812TPZRNTzeQOiv6M" />
         <activity
             android:name=".PastPatrolsActivity"
             android:exported="false" />

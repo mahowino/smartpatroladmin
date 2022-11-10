@@ -29,8 +29,7 @@ public  class GuardHelper {
                List<Guard> guardArrayList=new ArrayList<>();
                for (DocumentSnapshot snapshot:snapshotTask.getResult()){
                    Guard guard=new Guard();
-                   guard.setGuardName("mahalon");
-                   guard.setGuardApproved(true);
+                   guard.getGuardName();
                    guardArrayList.add(guard);
                }
                retriever.onSuccess(guardArrayList);

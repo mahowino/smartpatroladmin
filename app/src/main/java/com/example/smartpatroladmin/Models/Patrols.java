@@ -1,19 +1,18 @@
 package com.example.smartpatroladmin.Models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Patrols {
-    Date startingTime;
+
+    Timestamp startingTime;
     String startingLocation;
     String endingLocation;
 
-    public Date getStartingTime() {
+    public Timestamp getStartingTime() {
         return startingTime;
     }
 
-    public void setStartingTime(Date startingTime) {
-        this.startingTime = startingTime;
-    }
 
     public String getStartingLocation() {
         return startingLocation;
@@ -29,5 +28,8 @@ public class Patrols {
 
     public void setEndingLocation(String endingLocation) {
         this.endingLocation = endingLocation;
+    }
+
+    public void setStartingTime(com.google.firebase.Timestamp timestamp) {this.startingTime=startingTime;
     }
 }

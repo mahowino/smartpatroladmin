@@ -43,7 +43,7 @@ public class IncidentHelper {
                     incidents.setTitle(snapshot.getString(TITLE));
                     incidents.setDescription(snapshot.getString(DESCRIPTION));
                     incidents.setGuard(guard);
-                    calendar.setTime(snapshot.getDate(DATE));
+                    calendar.setTime(snapshot.getDate(TIME));
                     incidents.setCalendar(calendar);
 
                     incidentsArrayList.add(incidents);

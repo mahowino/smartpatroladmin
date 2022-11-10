@@ -30,7 +30,7 @@ public class PatrolHelper {
                 List<Patrols> patrols=new ArrayList<>();
                 for (DocumentSnapshot snapshot:snapshotTask.getResult()){
                     Patrols patrol=new Patrols();
-                    patrol.setStartingTime(snapshot.getDate(FirebaseFields.DATE));
+                    patrol.setStartingTime(snapshot.getTimestamp(FirebaseFields.TIME));
                     patrol.setStartingLocation(
                             AppSystem.getLocationFromString(snapshot.getGeoPoint(FirebaseFields.STARTINGLOCATION),context));
                     patrol.setEndingLocation(

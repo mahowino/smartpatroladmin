@@ -2,6 +2,7 @@ package com.example.smartpatroladmin;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -9,13 +10,18 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.smartpatroladmin.databinding.ActivityMapsBinding;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    DocumentReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        db=FirebaseFirestore.getInstance().collection("Patrols").document("JvSWtCdH3Vv2kLJCWuVr");
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -43,9 +50,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng ruai = new LatLng(-1.259080, 37.010280);
+        LatLng utawala = new LatLng(-1.286330, 36.967251);
+        LatLng embakasi = new LatLng(-1.310500, 36.914661);
+
+        mMap.addMarker(new MarkerOptions().position(ruai).title("Marker in Ruai"));
+        mMap.addMarker(new MarkerOptions().position(utawala).title("Marker in Utawala"));
+        mMap.addMarker(new MarkerOptions().position(embakasi).title("Marker in Embakasi"));
+        /*LatLngBounds.Builder builder = LatLngBounds.builder()
+                .include(ruai)
+                .include(utawala)
+                .include(embakasi);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), 100));*/
+        mMap.addPolyline((new PolylineOptions()).add(ruai, utawala, embakasi).
+                        width(5)
+                .color(Color.BLACK)
+                .geodesic(true));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ruai, 13));
+
     }
 }

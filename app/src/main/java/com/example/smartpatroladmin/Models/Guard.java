@@ -6,7 +6,6 @@ import android.os.Parcelable;
 
 public class Guard implements Parcelable {
     String guardName,email,password,uId;
-    Boolean isGuardApproved;
     Uri guardProfilePicture;
 
     public Guard() {
@@ -17,8 +16,6 @@ public class Guard implements Parcelable {
         email = in.readString();
         password = in.readString();
         uId = in.readString();
-        byte tmpIsGuardApproved = in.readByte();
-        isGuardApproved = tmpIsGuardApproved == 0 ? null : tmpIsGuardApproved == 1;
         guardProfilePicture = in.readParcelable(Uri.class.getClassLoader());
     }
 
@@ -74,13 +71,6 @@ public class Guard implements Parcelable {
         this.guardName = guardName;
     }
 
-    public Boolean getGuardApproved() {
-        return isGuardApproved;
-    }
-
-    public void setGuardApproved(Boolean guardApproved) {
-        isGuardApproved = guardApproved;
-    }
 
     @Override
     public int describeContents() {
@@ -93,7 +83,6 @@ public class Guard implements Parcelable {
         dest.writeString(email);
         dest.writeString(password);
         dest.writeString(uId);
-        dest.writeByte((byte) (isGuardApproved == null ? 0 : isGuardApproved ? 1 : 2));
         dest.writeParcelable(guardProfilePicture, flags);
     }
 }
