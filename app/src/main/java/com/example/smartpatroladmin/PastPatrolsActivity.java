@@ -50,6 +50,7 @@ public class PastPatrolsActivity extends AppCompatActivity {
             @Override
             public void onSuccess(List<Patrols> patrols) {
 
+                setAdapter(patrols);
             }
 
             @Override

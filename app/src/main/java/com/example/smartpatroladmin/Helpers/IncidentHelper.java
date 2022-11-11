@@ -14,6 +14,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class IncidentHelper {
@@ -43,7 +44,7 @@ public class IncidentHelper {
                     incidents.setTitle(snapshot.getString(TITLE));
                     incidents.setDescription(snapshot.getString(DESCRIPTION));
                     incidents.setGuard(guard);
-                    calendar.setTime(snapshot.getDate(TIME));
+                    calendar.setTime(new Date());
                     incidents.setCalendar(calendar);
 
                     incidentsArrayList.add(incidents);

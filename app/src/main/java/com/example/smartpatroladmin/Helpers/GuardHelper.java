@@ -4,19 +4,27 @@ import static com.example.smartpatroladmin.Firebase.Constants.FirestoreCollectio
 import static com.example.smartpatroladmin.Firebase.FirebaseAuthentication.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.*;
 
+import com.example.smartpatroladmin.Firebase.Constants.FirebaseFields;
 import com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections;
 import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
 import com.example.smartpatroladmin.Firebase.FirebaseConstans;
+import com.example.smartpatroladmin.Interface.Callback;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
 import com.example.smartpatroladmin.Interface.GuardsRetriever;
+import com.example.smartpatroladmin.Interface.getSchedules;
 import com.example.smartpatroladmin.Interface.onResult;
 import com.example.smartpatroladmin.Models.Guard;
+import com.example.smartpatroladmin.Models.Schedule;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.DataCollectionDefaultChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public  class GuardHelper {
 
@@ -29,7 +37,8 @@ public  class GuardHelper {
                List<Guard> guardArrayList=new ArrayList<>();
                for (DocumentSnapshot snapshot:snapshotTask.getResult()){
                    Guard guard=new Guard();
-                   guard.getGuardName();
+                   guard.setGuardName(String.valueOf(snapshot.get(FirebaseFields.EMAIL)));
+                   guard.setuId(snapshot.getId());
                    guardArrayList.add(guard);
                }
                retriever.onSuccess(guardArrayList);
@@ -43,11 +52,66 @@ public  class GuardHelper {
        });
 
     }
+    private static void getGuardDetails(String uid, Callback callback){
+        getDocument(GUARDS_REFERENCE.document(uid), new Callback() {
+            @Override
+            public void onSuccess(Object o) {
+                DocumentSnapshot snapshot=((Task<DocumentSnapshot>)o).getResult();
+
+                Guard guard=new Guard();
+                guard.setGuardName(String.valueOf(snapshot.get(FirebaseFields.EMAIL)));
+                guard.setuId(snapshot.getId());
+                Map<String, Object> schedule_days=(Map<String, Object>) snapshot.get(FirebaseFields.SCHEDULE);
+                Schedule schedule=new Schedule();
+
+                for (int day_of_week = 0; day_of_week< Objects.requireNonNull(schedule_days).size(); day_of_week++){
+                    if (schedule_days.containsKey(FirebaseFields.MONDAY))
+                        schedule.setMonday((Map<String, Date>) schedule_days.get(FirebaseFields.MONDAY));
+                   else if (schedule_days.containsKey(FirebaseFields.TUESDAY))
+                        schedule.setMonday((Map<String, Date>) schedule_days.get(FirebaseFields.TUESDAY));
+                   else if (schedule_days.containsKey(FirebaseFields.WEDNESDAY))
+                        schedule.setMonday((Map<String, Date>) schedule_days.get(FirebaseFields.WEDNESDAY));
+                    else if (schedule_days.containsKey(FirebaseFields.THURSDAY))
+                        schedule.setMonday((Map<String, Date>) schedule_days.get(FirebaseFields.THURSDAY));
+                    else if (schedule_days.containsKey(FirebaseFields.FRIDAY))
+                        schedule.setMonday((Map<String, Date>) schedule_days.get(FirebaseFields.FRIDAY));
+
+
+                }
+
+                guard.setSchedule(schedule);
+                callback.onSuccess(guard);
+            }
+
+            @Override
+            public void onFailure(Object o) {
+                callback.onFailure("failed to get guard");
+            }
+        });
+
+    }
     public static void logInGuard(Guard guard,onResult result){
         String response=validateInput(guard);
 
         if (response!=null)result.onError(response);
         else signInUser(guard.getEmail(),guard.getPassword(),result);
+
+    }
+
+    private static void getSchedule(String guardId,getSchedules getSchedules){
+        getGuardDetails(guardId, new Callback() {
+            @Override
+            public void onSuccess(Object o) {
+                Guard guard=(Guard) o;
+
+            }
+
+            @Override
+            public void onFailure(Object o) {
+
+            }
+        });
+
 
     }
 

@@ -5,11 +5,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Guard implements Parcelable {
-    String guardName,email,password,uId;
+    String guardName, email, password, uId;
     Uri guardProfilePicture;
-
-    public Guard() {
-    }
+    Schedule schedule;
 
     protected Guard(Parcel in) {
         guardName = in.readString();
@@ -30,6 +28,20 @@ public class Guard implements Parcelable {
             return new Guard[size];
         }
     };
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
+    }
+
+
+
+    public Guard() {
+    }
+
 
     public String getuId() {
         return uId;
@@ -78,11 +90,11 @@ public class Guard implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(guardName);
-        dest.writeString(email);
-        dest.writeString(password);
-        dest.writeString(uId);
-        dest.writeParcelable(guardProfilePicture, flags);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(guardName);
+        parcel.writeString(email);
+        parcel.writeString(password);
+        parcel.writeString(uId);
+        parcel.writeParcelable(guardProfilePicture, i);
     }
 }

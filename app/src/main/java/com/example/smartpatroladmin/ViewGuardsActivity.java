@@ -24,12 +24,7 @@ public class ViewGuardsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_guards);
         initializeData();
 
-        GuardHelper.getGuards(new GuardsRetriever() {
-            @Override
-            public void onSuccess(List<Guard> guards) {
-                ViewGuardsActivity.this.setAdapter(guards);
-            }
-        });
+        GuardHelper.getGuards(guards -> ViewGuardsActivity.this.setAdapter(guards));
 
 
     }
@@ -39,7 +34,7 @@ public class ViewGuardsActivity extends AppCompatActivity {
         viewGuards=findViewById(R.id.view_guards_recyclerView);
     }
     private void setAdapter(List<Guard> guards){
-        GuardAdapter adapter=new GuardAdapter(getApplicationContext(),guards);
+        GuardAdapter adapter=new GuardAdapter(getApplicationContext(),ViewGuardsActivity.this,guards);
         viewGuards.setAdapter(adapter);
         viewGuards.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
 

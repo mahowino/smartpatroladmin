@@ -1,5 +1,6 @@
 package com.example.smartpatroladmin.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -22,11 +23,13 @@ import java.util.List;
 public class GuardAdapter extends RecyclerView.Adapter<GuardAdapter.ViewHolder> {
     Context mContext;
     List<Guard> guards;
+    Activity activity;
     public static final String GUARD_DATA="guard_data";
 
-    public GuardAdapter(Context mContext, List<Guard> guards) {
+    public GuardAdapter(Context mContext, Activity activity, List<Guard> guards) {
         this.mContext = mContext;
         this.guards = guards;
+        this.activity=activity;
     }
 
     @NonNull
@@ -49,7 +52,7 @@ public class GuardAdapter extends RecyclerView.Adapter<GuardAdapter.ViewHolder> 
     private void showGuardDetails(Guard guard) {
         Intent intent=new Intent(mContext, PastPatrolsActivity.class);
         intent.putExtra(GUARD_DATA,guard);
-        mContext.startActivity(intent);
+        activity.startActivity(intent);
 
     }
 
