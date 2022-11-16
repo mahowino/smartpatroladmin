@@ -3,7 +3,7 @@ package com.example.smartpatroladmin.Firebase.Constants;
 import static com.example.smartpatroladmin.Firebase.Constants.FirestorePaths.GUARDS_PATH;
 
 import static com.example.smartpatroladmin.Firebase.Constants.FirestorePaths.INCIDENT_PATH;
-import static com.example.smartpatroladmin.Firebase.FirebaseConstans.db;
+import static com.example.smartpatroladmin.Firebase.FirebaseConstants.db;
 
 import com.google.firebase.firestore.CollectionReference;
 

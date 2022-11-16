@@ -70,7 +70,7 @@ public class LoginScreen extends AppCompatActivity {
 
 
     private void setListeners() {
-        forgotPassword.setOnClickListener(v -> redirectActivity(LoginScreen.this,MapsActivity.class));
+        forgotPassword.setOnClickListener(v -> redirectActivity(LoginScreen.this,ForgotPassword.class));
         mlogin.setOnClickListener(v -> logInAdmin());
 
         //onclick listeners

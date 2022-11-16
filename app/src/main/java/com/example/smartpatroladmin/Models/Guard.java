@@ -5,9 +5,20 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Guard implements Parcelable {
-    String guardName, email, password, uId;
+    String guardName, email, password, uId,phoneNumber;
     Uri guardProfilePicture;
     Schedule schedule;
+
+    public Guard(String email, String phoneNumber, String guardName) {
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     protected Guard(Parcel in) {
         guardName = in.readString();

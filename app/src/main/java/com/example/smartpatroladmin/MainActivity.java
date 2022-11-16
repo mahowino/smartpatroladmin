@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private void load_splashscreen() {
 
         //running of thread
-        redirectActivity(MainActivity.this, LoginScreen.class); finish();
+        redirectActivity(MainActivity.this, HomePage.class); finish();
        /* try {
             sleep(2000);
             redirectActivity(MainActivity.this, IncidentActivity.class); finish();

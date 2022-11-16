@@ -1,6 +1,6 @@
 package com.example.smartpatroladmin.Interface;
 
-public interface Callback {
+public interface callback {
     void onSuccess(Object o);
     void onFailure(Object o);
 }

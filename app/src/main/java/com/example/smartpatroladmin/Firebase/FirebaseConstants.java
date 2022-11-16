@@ -6,7 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class FirebaseConstans {
+public class FirebaseConstants {
 
     public static final FirebaseFirestore db=FirebaseFirestore.getInstance();
     public static final FirebaseAuth mAuth=FirebaseAuth.getInstance();

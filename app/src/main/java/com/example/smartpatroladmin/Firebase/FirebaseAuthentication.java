@@ -1,6 +1,6 @@
 package com.example.smartpatroladmin.Firebase;
 
-import static com.example.smartpatroladmin.Firebase.FirebaseConstans.*;
+import static com.example.smartpatroladmin.Firebase.FirebaseConstants.*;
 
 import com.example.smartpatroladmin.Interface.onResult;
 

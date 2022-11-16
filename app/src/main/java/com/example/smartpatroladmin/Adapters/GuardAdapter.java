@@ -46,7 +46,9 @@ public class GuardAdapter extends RecyclerView.Adapter<GuardAdapter.ViewHolder> 
     }
 
     private void setListeners(Guard guard, ViewHolder holder) {
-        holder.displayGuardBtn.setOnClickListener(click->showGuardDetails(guard));
+        holder.displayGuardBtn.setOnClickListener(click-> {
+            showGuardDetails(guard);
+        });
     }
 
     private void showGuardDetails(Guard guard) {
@@ -61,8 +63,10 @@ public class GuardAdapter extends RecyclerView.Adapter<GuardAdapter.ViewHolder> 
         //implement picasso library or Glide library to be able to load guard profile picture easily
         Picasso
                 .with(mContext)
-                .load(guard.getGuardProfilePicture())
+                //.load(guard.getGuardProfilePicture())
+                .load(R.drawable.icons8_vest_40px)
                .into(holder.guardProfilePicture);
+
     }
 
     @Override

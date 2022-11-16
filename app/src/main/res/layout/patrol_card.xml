@@ -28,14 +28,15 @@
             <ImageView
                 android:id="@+id/imgIncidentImageView"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/police_officer" />
+                app:srcCompat="@drawable/guard_incident"
+                tools:srcCompat="@drawable/guard_incident"/>
 
 
             <TextView
@@ -71,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="Villa Franca Estate A"
+                    android:text="Kenyatta University"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView"
@@ -92,7 +93,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="Villa Franca Estate B"
+                    android:text="Ruiru Bypass"
                     android:textColor="@color/black" />
             </LinearLayout>
 

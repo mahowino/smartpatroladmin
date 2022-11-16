@@ -152,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_signup"
-            android:backgroundTint="@color/primary"
+            android:backgroundTint="@color/shadow_blue"
             android:elevation="12dp"
             android:padding="10dp"
             android:text="Sign in"

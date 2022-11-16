@@ -22,4 +22,8 @@ public class FirebaseFields {
 
 
     //GUARDS
+    public static final String PHONENUMBER = "phoneNumber";
+    public static final String FULLNAME = "fullName";
+
+
 }

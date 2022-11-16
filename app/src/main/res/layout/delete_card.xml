@@ -22,21 +22,19 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/guard_constraint"
-            android:padding="5dp">
+            android:id="@+id/guard_constraint">
 
             <ImageView
                 android:id="@+id/imgGuardProfilePic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icons8_vest_40px"
-                tools:srcCompat="@drawable/icons8_vest_40px" />
+                app:srcCompat="@drawable/icons8_vest_40px" />
 
             <TextView
                 android:id="@+id/txtGuardName"
@@ -48,21 +46,18 @@
                 android:text="Mahalon Owino"
                 android:textColor="@color/primary_dark"
                 app:layout_constraintBottom_toBottomOf="@+id/imgGuardProfilePic"
-                app:layout_constraintEnd_toStartOf="@+id/imgDisplayGuard"
                 app:layout_constraintStart_toEndOf="@+id/imgGuardProfilePic"
                 app:layout_constraintTop_toTopOf="@+id/imgGuardProfilePic" />
 
             <ImageView
-                android:id="@+id/imgDisplayGuard"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
+                android:id="@+id/imgDeleteGuard"
+                android:src="@drawable/delete_can"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/forward_button"
-                app:layout_constraintBottom_toBottomOf="@+id/guard_constraint"
                 app:layout_constraintEnd_toEndOf="@id/guard_constraint"
                 app:layout_constraintTop_toTopOf="@+id/guard_constraint"
-                app:srcCompat="@drawable/forward_button"
-                tools:srcCompat="@drawable/forward_button" />
+                app:layout_constraintBottom_toBottomOf="@+id/guard_constraint"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

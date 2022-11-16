@@ -5,10 +5,10 @@ import static com.example.smartpatroladmin.Firebase.FirebaseAuthentication.*;
 import static com.example.smartpatroladmin.Firebase.FirebaseRepository.*;
 
 import com.example.smartpatroladmin.Firebase.Constants.FirebaseFields;
-import com.example.smartpatroladmin.Firebase.Constants.FirestoreCollections;
-import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
-import com.example.smartpatroladmin.Firebase.FirebaseConstans;
-import com.example.smartpatroladmin.Interface.Callback;
+import com.example.smartpatroladmin.Firebase.Constants.FirestorePaths;
+import com.example.smartpatroladmin.Firebase.FirebaseConstants;
+import com.example.smartpatroladmin.Firebase.FirebaseRepository;
+import com.example.smartpatroladmin.Interface.callback;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
 import com.example.smartpatroladmin.Interface.GuardsRetriever;
 import com.example.smartpatroladmin.Interface.getSchedules;
@@ -16,17 +16,22 @@ import com.example.smartpatroladmin.Interface.onResult;
 import com.example.smartpatroladmin.Models.Guard;
 import com.example.smartpatroladmin.Models.Schedule;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.DataCollectionDefaultChange;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public  class GuardHelper {
+    static Guard guardInHelper;
+
+
 
     public static void getGuards(GuardsRetriever retriever){
 
@@ -52,8 +57,8 @@ public  class GuardHelper {
        });
 
     }
-    private static void getGuardDetails(String uid, Callback callback){
-        getDocument(GUARDS_REFERENCE.document(uid), new Callback() {
+    private static void getGuardDetails(String uid, callback callback){
+        getDocument(GUARDS_REFERENCE.document(uid), new callback() {
             @Override
             public void onSuccess(Object o) {
                 DocumentSnapshot snapshot=((Task<DocumentSnapshot>)o).getResult();
@@ -99,7 +104,7 @@ public  class GuardHelper {
     }
 
     private static void getSchedule(String guardId,getSchedules getSchedules){
-        getGuardDetails(guardId, new Callback() {
+        getGuardDetails(guardId, new callback() {
             @Override
             public void onSuccess(Object o) {
                 Guard guard=(Guard) o;
@@ -124,8 +129,8 @@ public  class GuardHelper {
     }
 
     public static void signOut() {
-        if (FirebaseConstans.user!=null){
-            FirebaseConstans.mAuth.signOut();
+        if (FirebaseConstants.user!=null){
+            FirebaseConstants.mAuth.signOut();
         }
 
 
