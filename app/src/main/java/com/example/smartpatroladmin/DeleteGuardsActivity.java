@@ -36,7 +36,7 @@ public class DeleteGuardsActivity extends AppCompatActivity {
         viewGuards=findViewById(R.id.view_guards_recyclerView);
     }
     private void setAdapter(List<Guard> guards){
-        DeleteAdapter adapter=new DeleteAdapter(DeleteGuardsActivity.this,guards);
+        DeleteAdapter adapter=new DeleteAdapter(DeleteGuardsActivity.this,guards,DeleteGuardsActivity.this);
         viewGuards.setAdapter(adapter);
         viewGuards.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
 

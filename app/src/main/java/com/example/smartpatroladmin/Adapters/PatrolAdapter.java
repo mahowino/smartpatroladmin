@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smartpatroladmin.Interface.PatrolRetriever;
 import com.example.smartpatroladmin.Models.Patrols;
 import com.example.smartpatroladmin.R;
+import com.squareup.picasso.Picasso;
 
 import org.checkerframework.dataflow.qual.TerminatesExecution;
 
@@ -42,9 +44,15 @@ public class PatrolAdapter extends RecyclerView.Adapter<PatrolAdapter.HolderView
     }
 
     private void setTexts(Patrols patrols, HolderView holder) {
-        holder.time.setText((CharSequence) patrols.getStartingTime());
+        //holder.time.setText((CharSequence) patrols.getStartingTime());
         holder.locationStart.setText(patrols.getStartingLocation());
         holder.locationEnd.setText(patrols.getEndingLocation());
+
+        Picasso
+                .with(mContext)
+                //.load(guard.getGuardProfilePicture())
+                .load(R.drawable.icons8_police_car_64px)
+                .into(holder.imgIncidentImageView);
     }
 
     @Override
@@ -54,11 +62,13 @@ public class PatrolAdapter extends RecyclerView.Adapter<PatrolAdapter.HolderView
 
     public class HolderView extends RecyclerView.ViewHolder {
       TextView locationStart, locationEnd,time;
+      ImageView imgIncidentImageView;
         public HolderView(@NonNull View itemView) {
             super(itemView);
             locationStart=itemView.findViewById(R.id.txtLocationPatrolStart);
             locationEnd=itemView.findViewById(R.id.txtLocationPatrolEnd);
-            time=itemView.findViewById(R.id.txtPatrolDate);
+           // time=itemView.findViewById(R.id.txtPatrolDate);
+            imgIncidentImageView=itemView.findViewById(R.id.imgIncidentImageView);
 
         }
     }

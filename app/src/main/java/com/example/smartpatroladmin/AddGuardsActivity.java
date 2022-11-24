@@ -1,7 +1,11 @@
 package com.example.smartpatroladmin;
 
+import static com.example.smartpatroladmin.Helpers.GuardHelper.createGuardCollectionInFirebase;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
@@ -10,10 +14,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartpatroladmin.Firebase.FirebaseAuthentication;
 import com.example.smartpatroladmin.Firebase.FirebaseConstants;
+import com.example.smartpatroladmin.Helpers.GuardHelper;
+import com.example.smartpatroladmin.Interface.callback;
 import com.example.smartpatroladmin.Models.Guard;
+import com.example.smartpatroladmin.Models.TempGuardStorage;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 
 public class AddGuardsActivity extends AppCompatActivity {
     Button createGuard;
@@ -97,18 +109,28 @@ public class AddGuardsActivity extends AppCompatActivity {
                     return;
                 }
 
+                FirebaseConstants.mAuth.signOut();
 
                 FirebaseConstants.mAuth.createUserWithEmailAndPassword(email,password)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                new Guard(email,phoneNumber,guardName);
-                                Toast.makeText(AddGuardsActivity.this, "Guard added successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent= new Intent(AddGuardsActivity.this, ViewGuardsActivity.class);
-                                startActivity(intent);
-                            }else {
-                                Toast.makeText(AddGuardsActivity.this, "Retry, Guard was not added.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        .addOnSuccessListener(task -> {
+                                Guard guard=new Guard();
+                                guard.setEmail(email);
+                              createGuardCollectionInFirebase(guard,new callback() {
+                                                                    @Override
+                                                                    public void onSuccess(Object o) {
+                                                                        FirebaseConstants.mAuth.signOut();
+                                                                        Toast.makeText(AddGuardsActivity.this, "Guard added successfully, Log in to confirm", Toast.LENGTH_SHORT).show();
+                                                                        Intent intent= new Intent(AddGuardsActivity.this, LoginScreen.class);
+                                                                        startActivity(intent);
+                                                                    }
+
+                                                                    @Override
+                                                                    public void onFailure(Object o) {
+                                                                        Toast.makeText(AddGuardsActivity.this, "Guard not added", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                });
+
+                        }).addOnFailureListener(e-> Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show());
 
             }
             }

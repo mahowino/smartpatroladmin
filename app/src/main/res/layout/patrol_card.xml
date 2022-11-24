@@ -13,6 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:padding="8dp"
+        app:cardBackgroundColor="#fff"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,39 +28,25 @@
 
             <ImageView
                 android:id="@+id/imgIncidentImageView"
-                android:layout_width="80dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="32dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/guard_incident"
-                tools:srcCompat="@drawable/guard_incident"/>
+                app:srcCompat="@drawable/icons8_police_car_64px"
+                tools:srcCompat="@drawable/icons8_police_car_64px" />
 
-
-            <TextView
-                android:id="@+id/txtPatrolDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:maxLines="100"
-                android:text="10am"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-
-                app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,20 +57,18 @@
                     android:id="@+id/txtLocationPatrolStart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="Kenyatta University"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView"
-                    app:layout_constraintTop_toBottomOf="@id/txtPatrolDate" />
+                    app:layout_constraintStart_toEndOf="@+id/imgIncidentImageView" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
                     android:text="To" />
 
                 <TextView
@@ -95,6 +80,7 @@
                     android:layout_marginBottom="8dp"
                     android:text="Ruiru Bypass"
                     android:textColor="@color/black" />
+
             </LinearLayout>
 
 

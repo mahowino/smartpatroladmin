@@ -50,6 +50,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Email"
+                    android:textSize="15sp"
                     android:textColor="@color/black" />
 
                 <EditText
@@ -59,6 +60,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginBottom="10dp"
                     android:background="@null"
+                    android:padding="10dp"
                     android:ems="10"
                     android:hint="johndoe@gmail.com"
                     android:inputType="textPersonName"
@@ -107,6 +109,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:text="Password"
+                    android:textSize="15sp"
                     android:textColor="@color/black" />
 
                 <EditText
@@ -116,6 +119,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginBottom="10dp"
                     android:background="@null"
+                    android:padding="10dp"
                     android:ems="10"
                     android:hint="*********"
                     android:inputType="textPersonName|textPassword"

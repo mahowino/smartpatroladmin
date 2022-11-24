@@ -2,9 +2,11 @@ package com.example.smartpatroladmin.Firebase;
 
 import com.example.smartpatroladmin.Interface.callback;
 import com.example.smartpatroladmin.Interface.FirebaseDocumentRetriever;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.Map;
 
@@ -54,5 +56,17 @@ public class FirebaseRepository  {
                 )
                 .addOnFailureListener(e -> callback.onFailure(e));
     }
+    public static void setDocument(Map details, DocumentReference documentReference, SetOptions merge, callback callback) {
+        documentReference.set(details,merge).addOnCompleteListener(task -> runTaskValidation(task, callback));
+    }
+    private static void runTaskValidation(Task task, callback callback) {
+        if (task.isSuccessful()) callback.onSuccess(task);
+        else callback.onFailure("fail");
+    }
+    public static DocumentReference createDocumentReference(String path) {
+        return FirebaseConstants.db.document(path);
+    }
+
+
 
 }

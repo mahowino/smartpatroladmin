@@ -3,7 +3,9 @@ package com.example.smartpatroladmin;
 import static com.example.smartpatroladmin.Helpers.GuardHelper.*;
 import static com.example.smartpatroladmin.util.AppSystem.redirectActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -17,9 +19,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartpatroladmin.Firebase.FirebaseConstants;
 import com.example.smartpatroladmin.Interface.onResult;
 import com.example.smartpatroladmin.Models.Guard;
+import com.example.smartpatroladmin.Models.TempGuardStorage;
 import com.example.smartpatroladmin.util.LoadingDialog;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.auth.User;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.Map;
 
 public class LoginScreen extends AppCompatActivity {
     EditText memail,mpassword;
@@ -93,6 +102,8 @@ public class LoginScreen extends AppCompatActivity {
         logInGuard(guard, new onResult() {
             @Override
             public void onSuccess() {
+
+
                 redirectActivity(LoginScreen.this,HomePage.class);
             }
 
@@ -103,6 +114,7 @@ public class LoginScreen extends AppCompatActivity {
         });
 
     }
+
 
     private Guard getGuardDetails() {
         Guard guard=new Guard();

@@ -5,6 +5,7 @@ import static java.lang.Thread.sleep;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Thread splashScreenDisplay = new Thread() {
             @Override
             public void run() {
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private void load_splashscreen() {
 
         //running of thread
-        redirectActivity(MainActivity.this, HomePage.class); finish();
+        redirectActivity(MainActivity.this, LoginScreen.class); finish();
        /* try {
             sleep(2000);
             redirectActivity(MainActivity.this, IncidentActivity.class); finish();
